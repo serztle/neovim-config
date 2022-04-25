@@ -82,6 +82,12 @@ local packer = require('packer').startup(function(use)
 
   use 'godlygeek/tabular'
 
+  use 'norcalli/nvim-colorizer.lua'
+  use 'Glench/Vim-Jinja2-Syntax'
+
+  use 'vim-pandoc/vim-pandoc'
+  use 'vim-pandoc/vim-pandoc-syntax'
+
   -- this will automatically install listed dependencies
   -- only the first time NeoVim is opened, because that's when Packer gets installed
   if packerBootstrap then
@@ -105,5 +111,6 @@ require('plugin-config/indent-guide-lines')
 require('lspconfig').pyright.setup{}
 require('lspconfig').clangd.setup{}
 require('lspconfig').sumneko_lua.setup{}
+require('colorizer').setup()
 
 return packer

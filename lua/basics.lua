@@ -84,5 +84,7 @@ vim.o.hidden=true
 -- Copy paste between vim and everything else
 vim.o.clipboard = "unnamedplus"
 
+vim.o.termguicolors = true
+
 vim.diagnostic.config({virtual_text = false})
 vim.diagnostic.disable()

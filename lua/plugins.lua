@@ -85,8 +85,8 @@ local packer = require('packer').startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'Glench/Vim-Jinja2-Syntax'
 
-  use 'vim-pandoc/vim-pandoc'
-  use 'vim-pandoc/vim-pandoc-syntax'
+  -- use 'vim-pandoc/vim-pandoc'
+  -- use 'vim-pandoc/vim-pandoc-syntax'
 
   -- this will automatically install listed dependencies
   -- only the first time NeoVim is opened, because that's when Packer gets installed

@@ -6,6 +6,8 @@ vim.api.nvim_set_keymap('n', '<Leader>g', "<Cmd>lua require'telescope.builtin'.l
 vim.api.nvim_set_keymap('n', '<Leader>s', "<Cmd>lua require'telescope.builtin'.grep_string()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>b', "<Cmd>lua require'telescope.builtin'.buffers()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>h', "<Cmd>lua require'telescope.builtin'.help_tags()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<Leader>t', "<Cmd>lua require'telescope.builtin'.treesitter()<CR>", opts)
+
 
 local actions = require('telescope.actions')
 require('telescope').setup {

@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
-  -- will install treesitter for all available languages
-  ignore_install = {"haskell"}, -- broken
+  ensure_installed = { "c", "lua", "rust", "php", "python" },
+  sync_install = false,
   highlight = {
     enable = true
   }

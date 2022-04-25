@@ -85,6 +85,11 @@ local packer = require('packer').startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'Glench/Vim-Jinja2-Syntax'
 
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
+
   -- use 'vim-pandoc/vim-pandoc'
   -- use 'vim-pandoc/vim-pandoc-syntax'
 
@@ -107,6 +112,7 @@ require('plugin-config/lspsaga')
 require('plugin-config/galaxyline')
 require('plugin-config/gitsigns')
 require('plugin-config/indent-guide-lines')
+require('plugin-config/todo-comments')
 
 require('lspconfig').pyright.setup{}
 require('lspconfig').clangd.setup{}

@@ -29,13 +29,13 @@ local li = {
   -- block
   b = '█',
   -- bottom left
-  bl = u'e0b8', -- '',
+  bl = ' ',
   -- bottom right
-  br = u'e0ba', -- '',
+  br = ' ',
   -- top left
-  tl = u'e0bc', -- '',
+  tl = ' ',
   -- top right
-  tr = u'e0be' -- '',
+  tr = ' ',
 }
 
 -- taken from LunarVim

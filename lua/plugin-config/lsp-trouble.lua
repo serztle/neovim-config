@@ -6,7 +6,7 @@ require('trouble').setup{
     mode = "document_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
     fold_open = "", -- icon used for open folds
     fold_closed = "", -- icon used for closed folds
-    group = true, -- group results by file
+    group = false, -- group results by file
     padding = true, -- add an extra new line on top of the list
     action_keys = { -- key mappings for actions in the trouble list
         close = "q", -- close the list
@@ -20,8 +20,8 @@ require('trouble').setup{
         close_folds = {"zM", "zm"}, -- close all folds
         open_folds = {"zR", "zr"}, -- open all folds
         toggle_fold = {"zA", "za"}, -- toggle fold of current file
-        previous = "l", -- preview item
-        next = "k" -- next item
+        previous = "k", -- preview item
+        next = "j" -- next item
     },
     indent_lines = true, -- add an indent guide below the fold icons
     auto_open = false, -- automatically open the list when you have diagnostics

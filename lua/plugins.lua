@@ -36,10 +36,7 @@ local packer = require('packer').startup(function(use)
   use 'mhinz/vim-startify'
 
   -- lsp config
-  use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-  }
+  use 'neovim/nvim-lspconfig'
 
   -- for LSP autocompletion
   use 'hrsh7th/cmp-nvim-lsp'
@@ -58,10 +55,6 @@ local packer = require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-  -- better hotfix window (for showing and searching through results in telescope's find usages)
-  -- TODO: learn how to use?
-  use {"kevinhwang91/nvim-bqf"}
 
   -- better highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -87,6 +80,8 @@ local packer = require('packer').startup(function(use)
   -- show indentation levels
   use 'lukas-reineke/indent-blankline.nvim'
 
+  use 'godlygeek/tabular'
+
   -- this will automatically install listed dependencies
   -- only the first time NeoVim is opened, because that's when Packer gets installed
   if packerBootstrap then
@@ -106,5 +101,9 @@ require('plugin-config/lspsaga')
 require('plugin-config/galaxyline')
 require('plugin-config/gitsigns')
 require('plugin-config/indent-guide-lines')
+
+require('lspconfig').pyright.setup{}
+require('lspconfig').clangd.setup{}
+require('lspconfig').sumneko_lua.setup{}
 
 return packer

@@ -1,10 +1,5 @@
 -- ################# Basic settings ################ --
 
--- ================= Holy leader key ================= --
-
-vim.g.mapleader = ','
-
-
 -- ================= File management ================= --
 
 -- swapfile has global & local config, eventhough help says otherwise
@@ -13,7 +8,6 @@ vim.bo.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.autoread = true -- auto file change detection
-
 -- autocmds are currently not supported by nvim (0.5 nighlty)
 vim.api.nvim_command([[
 " Triger `autoread` when files changes on disk
@@ -22,7 +16,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 ]])
-
 
 -- ================= Scrolling ================= --
 
@@ -90,3 +83,6 @@ vim.o.hidden=true
 
 -- Copy paste between vim and everything else
 vim.o.clipboard = "unnamedplus"
+
+vim.diagnostic.config({virtual_text = false})
+vim.diagnostic.disable()

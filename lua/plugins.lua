@@ -90,6 +90,8 @@ local packer = require('packer').startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   }
 
+  use 'tpope/vim-fugitive'
+
   -- use 'vim-pandoc/vim-pandoc'
   -- use 'vim-pandoc/vim-pandoc-syntax'
 
@@ -117,6 +119,7 @@ require('plugin-config/todo-comments')
 require('lspconfig').pyright.setup{}
 require('lspconfig').clangd.setup{}
 require('lspconfig').sumneko_lua.setup{}
+require('lspconfig').rust_analyzer.setup{}
 require('colorizer').setup()
 
 return packer

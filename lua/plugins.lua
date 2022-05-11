@@ -92,6 +92,8 @@ local packer = require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
+  use 'lewis6991/spellsitter.nvim'
+
   -- use 'vim-pandoc/vim-pandoc'
   -- use 'vim-pandoc/vim-pandoc-syntax'
 
@@ -121,5 +123,8 @@ require('lspconfig').clangd.setup{}
 require('lspconfig').sumneko_lua.setup{}
 require('lspconfig').rust_analyzer.setup{}
 require('colorizer').setup()
+require('spellsitter').setup {
+  enable = true,
+}
 
 return packer

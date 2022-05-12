@@ -17,6 +17,20 @@ autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 ]])
 
+-- https://github.com/lucasvianav/nvim/blob/62ac5c2aa8abb25094d7d896c3b58a0936c13984/lua/functions/utilities.lua#L39-L48
+function trim_trailing_whitespaces()
+    local cmd = vim.api.nvim_command
+    if not vim.o.binary and vim.o.filetype ~= 'diff' then
+        local current_view = vim.fn.winsaveview()
+        cmd([[keeppatterns %s/\s\+$//e]])
+        vim.fn.winrestview(current_view)
+    end
+end
+
+vim.api.nvim_command([[
+autocmd BufWritePre * :lua trim_trailing_whitespaces()
+]])
+
 -- ================= Scrolling ================= --
 
 vim.o.scrolloff = 8 -- start scrolling when 8 lines away from margins

@@ -2,8 +2,8 @@
 local trouble = require("trouble.providers.telescope")
 local opts = { silent = true, noremap = true }
 vim.api.nvim_set_keymap('n', '<Leader>f', "<Cmd>lua require'telescope.builtin'.find_files()<CR>", {silent=false, noremap=true})
-vim.api.nvim_set_keymap('n', '<Leader>g', "<Cmd>lua require'telescope.builtin'.grep_string{search = '' }<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>G', "<Cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<Leader>G', "<Cmd>lua require'telescope.builtin'.grep_string{search = '' }<CR>", opts)
+vim.api.nvim_set_keymap('n', '<Leader>g', "<Cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>s', "<Cmd>lua require'telescope.builtin'.grep_string()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>b', "<Cmd>lua require'telescope.builtin'.buffers()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>h', "<Cmd>lua require'telescope.builtin'.help_tags()<CR>", opts)

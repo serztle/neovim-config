@@ -1,7 +1,7 @@
 local opts = {silent = true, noremap = true}
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
+vim.api.nvim_set_keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", opts)
 vim.api.nvim_set_keymap("n", "gD", "<cmd>TroubleToggle lsp_definitions<cr>", opts)
 vim.api.nvim_set_keymap("n", "gT", "<cmd>TroubleToggle lsp_type_definitions<cr>", opts)
 require('trouble').setup{
@@ -10,7 +10,7 @@ require('trouble').setup{
     mode = "document_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
     fold_open = "", -- icon used for open folds
     fold_closed = "", -- icon used for closed folds
-    group = false, -- group results by file
+    group = true, -- group results by file
     padding = true, -- add an extra new line on top of the list
     action_keys = { -- key mappings for actions in the trouble list
         close = "q", -- close the list

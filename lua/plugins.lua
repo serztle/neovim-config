@@ -122,6 +122,7 @@ require('lspconfig').pyright.setup{}
 require('lspconfig').clangd.setup{}
 require('lspconfig').sumneko_lua.setup{}
 require('lspconfig').rust_analyzer.setup{}
+require('lspconfig').bashls.setup{}
 require('colorizer').setup()
 require('spellsitter').setup {
   enable = true,

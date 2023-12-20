@@ -2,7 +2,7 @@
 local opts = { noremap = true, silent = true }
 
 -- mapping that opens .vimrc in a new tab for quick editing
-vim.api.nvim_set_keymap('n', '<Leader>ev', '<Cmd>tabe $MYVIMRC<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>ev', '<Cmd>tabe $MYVIMRC<CR><Cmd>cd %:h<CR>', opts)
 
 -- opening terminal with shortcut
 vim.api.nvim_set_keymap('', '<Leader><CR>', '<Cmd>silent !$TERM &<CR>', opts)

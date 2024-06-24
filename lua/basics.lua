@@ -102,3 +102,6 @@ vim.o.termguicolors = true
 
 vim.diagnostic.config({virtual_text = false})
 vim.diagnostic.disable()
+
+-- vim.opt.statuscolumn = " "
+vim.wo.signcolumn = "yes"

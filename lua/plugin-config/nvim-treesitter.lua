@@ -10,6 +10,5 @@ require'nvim-treesitter.configs'.setup {
     disable = function(lang, bufnr)
         return lang == "javascript" or ts_disable(lang, bufnr)
     end,
-    additional_vim_regex_highlighting = {"latex"},
   },
 }

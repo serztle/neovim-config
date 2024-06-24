@@ -1,5 +1,5 @@
 -- Find files using lua fuctions
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 local opts = { silent = true, noremap = true }
 vim.api.nvim_set_keymap('n', '<Leader>f', "<Cmd>lua require'telescope.builtin'.find_files()<CR>", {silent=false, noremap=true})
 vim.api.nvim_set_keymap('n', '<Leader>G', "<Cmd>lua require'telescope.builtin'.grep_string{search = '' }<CR>", opts)
@@ -53,14 +53,14 @@ require('telescope').setup {
                 -- ['ć'] = actions.close,
                 ['<CR>'] = actions.select_default + actions.center,
                 ['<esc>'] = actions.close,
-                ["<C-t>"] = trouble.open_with_trouble,
+                ["<C-t>"] = trouble.open,
             },
             n = {
                 ['<C-k>'] = actions.move_selection_next,
                 ['<C-l>'] = actions.move_selection_previous,
                 ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
                 ['<esc>'] = actions.close,
-                ["<C-t>"] = trouble.open_with_trouble,
+                ["<C-t>"] = trouble.open,
             }
         }
     },

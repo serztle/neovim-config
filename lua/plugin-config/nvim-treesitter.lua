@@ -3,7 +3,7 @@ local function ts_disable(_, bufnr)
 end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "rust", "php", "python", "latex", "bibtex", "javascript"},
+  ensure_installed = { "c", "rust", "php", "python", "latex", "bibtex", "javascript", "go"},
   sync_install = false,
   highlight = {
     enable = true,

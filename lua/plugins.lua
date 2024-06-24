@@ -75,7 +75,9 @@ local packer = require('packer').startup(function(use)
   use 'folke/lsp-colors.nvim'
 
   -- better LSP UI (for code actions, rename etc.)
-  use 'tami5/lspsaga.nvim'
+  use ({
+    'nvimdev/lspsaga.nvim',
+  })
 
   -- show indentation levels
   use 'lukas-reineke/indent-blankline.nvim'
@@ -104,6 +106,7 @@ local packer = require('packer').startup(function(use)
   end
 end)
 
+
 -- plugin specific configs go here
 require('plugin-config/nvim-cmp')
 require('plugin-config/telescope')
@@ -118,12 +121,15 @@ require('plugin-config/gitsigns')
 require('plugin-config/indent-guide-lines')
 require('plugin-config/todo-comments')
 
+require('lspsaga').setup({})
+
 require('lspconfig').pyright.setup{}
 require('lspconfig').clangd.setup{}
 require('lspconfig').lua_ls.setup{}
 require('lspconfig').rust_analyzer.setup{}
 require('lspconfig').bashls.setup{}
 require('lspconfig').tsserver.setup{}
+require('lspconfig').gopls.setup{}
 require('colorizer').setup()
 require('spellsitter').setup {
   enable = true,

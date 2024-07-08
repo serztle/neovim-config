@@ -1,136 +1,167 @@
-local fn = vim.fn
-local installPath = DATA_PATH..'/site/pack/packer/start/packer.nvim'
-
--- install packer if it's not installed already
-local packerBootstrap = nil
-if fn.empty(fn.glob(installPath)) > 0 then
-  packerBootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', installPath})
-  vim.cmd [[packadd packer.nvim]]
-end
-
 local packer = require('packer').startup(function(use)
-  -- Packer should manage itself
-  use 'wbthomason/packer.nvim'
-
-  -- colorscheme
-  use 'drewtempelmeyer/palenight.vim'
-
-  -- git integration
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
+    use 'wbthomason/packer.nvim'
+    use 'drewtempelmeyer/palenight.vim'
+    use 'tpope/vim-surround'
+    use 'scrooloose/nerdcommenter'
+    use {
+		'nvim-lualine/lualine.nvim',
+		requires = 'nvim-tree/nvim-web-devicons'
     }
-  }
+    use 'mhinz/vim-startify'
+    use 'neovim/nvim-lspconfig'
 
-  -- surround vim
-  use 'tpope/vim-surround'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
-  -- nerd commenter
-  use 'scrooloose/nerdcommenter'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = 'nvim-lua/plenary.nvim'
+    }
 
-  -- status line
-  use 'glepnir/galaxyline.nvim'
+    use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
 
-  -- show recent files on empty nvim command
-  use 'mhinz/vim-startify'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'nvim-tree/nvim-tree.lua'
 
-  -- lsp config
-  use 'neovim/nvim-lspconfig'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'lewis6991/gitsigns.nvim'
 
-  -- for LSP autocompletion
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+    use {
+        'romgrk/barbar.nvim',
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
 
-  -- For vsnip users.
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+    use 'folke/lsp-trouble.nvim'
+    use 'folke/lsp-colors.nvim'
+    use 'nvimdev/lspsaga.nvim'
+    use 'lukas-reineke/indent-blankline.nvim'
 
-  -- TODO: prettify telescope vim, make it use regex & shorten the window
-  -- telescope - searching / navigation
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  -- better highlighting
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {} end
-  }
-
-  -- prettier tabs
-  use 'romgrk/barbar.nvim'
-
-  -- nice diagnostic pane on the bottom
-  use 'folke/lsp-trouble.nvim'
-
-  -- support the missing lsp diagnostic colors
-  use 'folke/lsp-colors.nvim'
-
-  -- better LSP UI (for code actions, rename etc.)
-  use ({
-    'nvimdev/lspsaga.nvim',
-  })
-
-  -- show indentation levels
-  use 'lukas-reineke/indent-blankline.nvim'
-
-  use 'godlygeek/tabular'
-
-  use 'norcalli/nvim-colorizer.lua'
-  use 'Glench/Vim-Jinja2-Syntax'
-
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-  }
-
-  use 'tpope/vim-fugitive'
-
-  use 'lewis6991/spellsitter.nvim'
-
-  -- use 'vim-pandoc/vim-pandoc'
-  -- use 'vim-pandoc/vim-pandoc-syntax'
-
-  -- this will automatically install listed dependencies
-  -- only the first time NeoVim is opened, because that's when Packer gets installed
-  if packerBootstrap then
-    require('packer').sync()
-  end
+    use 'godlygeek/tabular'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'Glench/Vim-Jinja2-Syntax'
+    use {
+        'folke/todo-comments.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+    }
+    use 'tpope/vim-fugitive'
 end)
 
+require('lspconfig').pyright.setup({})
+require('lspconfig').clangd.setup({})
+require('lspconfig').lua_ls.setup({})
+require('lspconfig').rust_analyzer.setup({})
+require('lspconfig').bashls.setup({})
+require('lspconfig').tsserver.setup({})
+require('lspconfig').gopls.setup({})
+require('gitsigns').setup({})
+require('colorizer').setup({})
+require('nvim-tree').setup({})
+require('todo-comments').setup({})
+require('trouble').setup({})
+require('ibl').setup({})
 
--- plugin specific configs go here
-require('plugin-config/nvim-cmp')
-require('plugin-config/telescope')
-require('plugin-config/nvim-tree')
-require('plugin-config/nvim-treesitter')
-require('plugin-config/barbar')
-require('plugin-config/lsp-colors')
-require('plugin-config/lsp-trouble')
-require('plugin-config/lspsaga')
-require('plugin-config/galaxyline')
-require('plugin-config/gitsigns')
-require('plugin-config/indent-guide-lines')
-require('plugin-config/todo-comments')
+vim.cmd('colorscheme palenight')
+vim.api.nvim_command('let g:palenight_terminal_italics=1')
 
-require('lspconfig').pyright.setup{}
-require('lspconfig').clangd.setup{}
-require('lspconfig').lua_ls.setup{}
-require('lspconfig').rust_analyzer.setup{}
-require('lspconfig').bashls.setup{}
-require('lspconfig').tsserver.setup{}
-require('lspconfig').gopls.setup{}
-require('colorizer').setup()
-require('spellsitter').setup {
-  enable = true,
+local function diff_source()
+    local gitsigns = vim.b.gitsigns_status_dict
+    if gitsigns then
+        return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed
+        }
+    end
+end
+
+require('lualine').setup({
+    options = {
+        globalstatus = true,
+    },
+    sections = {
+        lualine_b = {
+            'branch',
+            {'diff', source = diff_source},
+            'diagnostics'
+        }
+    }
+})
+
+require('lspsaga').setup({
+    lightbulb = {
+        enable = false,
+        virtual_text = false,
+    }
+})
+
+local actions = require('telescope.actions')
+local trouble = require('trouble.sources.telescope')
+require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ['<C-j>'] = actions.move_selection_next,
+                ['<C-k>'] = actions.move_selection_previous,
+                ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+                ['<CR>'] = actions.select_default + actions.center,
+                ['<ESC>'] = actions.close,
+                ['<C-t>'] = trouble.open,
+            },
+            n = {
+                ['<C-j>'] = actions.move_selection_next,
+                ['<C-k>'] = actions.move_selection_previous,
+                ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+                ['<ESC>'] = actions.close,
+                ['<C-t>'] = trouble.open,
+            }
+        }
+    }
 }
+
+require('nvim-treesitter.configs').setup {
+    ensure_installed = { 'c', 'rust', 'php', 'python', 'latex', 'bibtex', 'javascript', 'go'},
+    sync_install = false,
+    highlight = {
+        enable = true,
+        disable = function(lang, bufnr)
+            return lang == 'javascript' or lang == 'json' or vim.api.nvim_buf_line_count(bufnr) > 5000
+        end,
+    },
+}
+
+local cmp = require('cmp')
+cmp.setup({
+	completion = {
+		autocomplete = false,
+	},
+	mapping = {
+		['<C-N>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				cmp.complete()
+			end
+		end, { 'i', 's' }),
+		['<C-P>'] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				cmp.complete()
+			end
+		end, { 'i', 's' }),
+	},
+	sources = cmp.config.sources({
+		{ name = 'path' },
+		{ name = 'nvim_lsp' },
+	}, {
+		{ name = 'buffer' },
+	})
+})
 
 return packer

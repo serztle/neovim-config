@@ -1,8 +1,8 @@
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', '<Leader>ev', '<Cmd>tabe $MYVIMRC<CR><Cmd>cd %:h<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ev', '<Cmd>tabe $MYVIMRC<CR><Cmd>cd %:h<CR>', opts)
 
-vim.api.nvim_set_keymap('', '<Leader><CR>', '<Cmd>silent !$TERM &<CR>', opts)
+vim.api.nvim_set_keymap('', '<leader><CR>', '<Cmd>silent !$TERM &<CR>', opts)
 
 vim.api.nvim_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -23,7 +23,7 @@ vim.api.nvim_set_keymap("n", "gT", "<cmd>Trouble lsp_type_definitions<cr>", opts
 vim.api.nvim_set_keymap('n', 'ga', ':Lspsaga code_action<CR>', opts)
 vim.api.nvim_set_keymap('v', 'ga', ':Lspsaga code_action<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gh', ':Lspsaga hover_doc<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>r', ':Lspsaga rename<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>rr', ':Lspsaga rename<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gn', ':Lspsaga diagnostic_jump_prev<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gN', ':Lspsaga diagnostic_jump_next<CR>', opts)
 
@@ -31,11 +31,11 @@ vim.api.nvim_set_keymap('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>r', '<Cmd>NvimTreeRefresh<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>n', '<Cmd>NvimTreeFindFile<CR>', opts)
 
-vim.api.nvim_set_keymap('n', '<Leader>f', "<Cmd>lua require'telescope.builtin'.find_files()<CR>", {silent=false, noremap=true})
-vim.api.nvim_set_keymap('n', '<Leader>G', "<Cmd>lua require'telescope.builtin'.grep_string{search = '' }<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>g', "<Cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>s', "<Cmd>lua require'telescope.builtin'.grep_string()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>b', "<Cmd>lua require'telescope.builtin'.buffers()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>h', "<Cmd>lua require'telescope.builtin'.help_tags()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>t', "<Cmd>lua require'telescope.builtin'.treesitter()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<Leader>d', "<Cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>f', "<Cmd>lua require'telescope.builtin'.find_files()<CR>", {silent=false, noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>G', "<Cmd>lua require'telescope.builtin'.grep_string{search = '' }<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>g', "<Cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>s', "<Cmd>lua require'telescope.builtin'.grep_string()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>b', "<Cmd>lua require'telescope.builtin'.buffers()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>h', "<Cmd>lua require'telescope.builtin'.help_tags()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>t', "<Cmd>lua require'telescope.builtin'.treesitter()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>d', "<Cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols()<CR>", opts)
